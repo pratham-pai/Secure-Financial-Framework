@@ -7,7 +7,7 @@ Secure Financial Framework is a Python-based banking system designed to ensure r
 - **Data Persistence:** Utilizes SQLite3 database for persistent storage of account details and transaction history.
 - **Object-Oriented Approach:** Organized and structured codebase for efficient management of banking operations.
 - **Password Encryption:** Implements SHA-256 hashing algorithm to encrypt user passwords for enhanced security.
-- **Two-Factor Authentication:** Provides an additional layer of security through password-based authentication. (will be implemented in the next commit)
+- **Two-Factor Authentication:** Provides an additional layer of security through password-based authentication.
 - **Transaction History:** Transparent recording and display of account transaction history for users and administrators.
 - **Account Locking Mechanism:** Prevents unauthorized access by locking user accounts after consecutive failed login attempts.
 - **Database Operations:** Enables seamless database operations for account management and administrative tasks.
