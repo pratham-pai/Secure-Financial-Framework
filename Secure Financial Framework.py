@@ -62,8 +62,7 @@ class BankAccount:
     # Method to record transaction details in the database
     def _record_transaction(self, transaction_type, amount):
         cursor = self.conn.cursor()
-        cursor.execute("INSERT INTO transactions (acc_num, transaction_type, amount) VALUES (?, ?, ?)",
-                       (self.acc_num, transaction_type, amount))
+        cursor.execute("INSERT INTO transactions (acc_num, transaction_type, amount) VALUES (?, ?, ?)", (self.acc_num, transaction_type, amount))
         self.conn.commit()
 
     # Method to retrieve transaction history for this account
@@ -94,8 +93,7 @@ class BankAccount:
     # Method to update account details in the database
     def update_database(self):
         cursor = self.conn.cursor()
-        cursor.execute("UPDATE accounts SET total_amount=?, total_dep=?, total_wit=?, total_tra=?, login_attempts=?, is_locked=? WHERE acc_num=?", 
-                       (self.total_amount, self.total_dep, self.total_wit, self.total_tra, self.login_attempts, self.is_locked, self.acc_num))
+        cursor.execute("UPDATE accounts SET total_amount=?, total_dep=?, total_wit=?, total_tra=?, login_attempts=?, is_locked=? WHERE acc_num=?", (self.total_amount, self.total_dep, self.total_wit, self.total_tra, self.login_attempts, self.is_locked, self.acc_num))
         self.conn.commit()
 
     # Method to delete the account from the database
@@ -126,8 +124,7 @@ def create_account(conn):
     last_acc_num = cursor.fetchone()[0] or 0
     acc_num = last_acc_num + 1
     # Insert new account details into the accounts table
-    cursor.execute("INSERT INTO accounts (name, acc_num, total_amount, total_dep, total_wit, total_tra, login_attempts, is_locked, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-                   (name, acc_num, 0, 0, 0, 0, 0, 0, password))
+    cursor.execute("INSERT INTO accounts (name, acc_num, total_amount, total_dep, total_wit, total_tra, login_attempts, is_locked, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, acc_num, 0, 0, 0, 0, 0, 0, password))
     conn.commit()
     print(f"Account created successfully with account number: {acc_num}")
     return BankAccount(name, acc_num, conn)
